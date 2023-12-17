@@ -1,0 +1,14 @@
+@import "../../Variables/Variables.scss";
+
+.user-information-container {
+  gap: 1.625rem;
+  display: flex;
+  width: 100%;
+  @media (max-width: 1200px) {
+   grid-template-columns: repeat(2, 1fr); 
+   display: grid;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr); 
+  }    
+}

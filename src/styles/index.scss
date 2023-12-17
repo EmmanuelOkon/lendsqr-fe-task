@@ -1,0 +1,84 @@
+@import "../Variables/Variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.cdnfonts.com/css/avenir-next-cyr");
+@import url("https://fonts.cdnfonts.com/css/avenir-next-lt-pro");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $primary-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+}
+/* width */
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+  display: block;
+}
+
+.wrapper{
+  overflow-x: hidden;
+  margin-top: 100px;
+  padding: 20px;
+  margin-left: 283px;
+  @media (max-width: 800px) {
+    margin-left: 80px;
+  }
+  
+}
+
+.loader-container {
+  margin: 100px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show{
+  right: 20px;
+}
+
+.hidden{
+  right: -1000px;
+}
+.empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  position: absolute;
+  translate: transform(-50%, -50%);
+  top: 20%;
+  left: 40%;
+
+  // margin: 0 auto;
+}
+  .no-data{  
+   width: 200px;
+}

@@ -1,0 +1,35 @@
+@import "../../Variables/Variables.scss";
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+  .heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $primary-text-color;
+    padding: 0;
+    margin: 0;
+  }
+
+  .no-content {
+    text-align: center;
+    font-size: 1.2rem;
+    color: $primary-text-color;
+    font-weight: 500;
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 2000px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+  }
+
+  @media (max-width: 720px) {
+    .heading {
+      text-align: center;
+    }
+  }
+}

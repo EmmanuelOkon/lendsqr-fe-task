@@ -1,0 +1,19 @@
+@import "../../Variables/Variables.scss";
+
+.single-nav {
+  .active-nav {
+    border-bottom: 2px solid $tertiary-text-color;
+    color: $tertiary-text-color;
+  }
+  .nav-name {
+    // width: 100%;
+    padding-bottom: 0.625rem;
+    padding-left: 1.55rem;
+    padding-right: 1.55rem;
+    margin: 0;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

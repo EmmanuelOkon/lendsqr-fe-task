@@ -1,0 +1,22 @@
+@import "../../Variables/Variables.scss";
+
+.body {
+  display: flex;
+  gap: 5%;
+  align-self: start;
+}
+
+.error-body {
+  display: flex;
+  gap: 3.75rem;
+  align-self: start;
+  text-align: center;
+  h2 {
+    margin-top: 7rem;
+    font-size: 1.2rem;
+    margin-left: 10rem;
+  }
+  button {
+    margin-left: 27rem;
+  }
+}

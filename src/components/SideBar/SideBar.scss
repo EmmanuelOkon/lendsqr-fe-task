@@ -1,0 +1,112 @@
+@import "../../Variables/Variables.scss";
+
+.box{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.side-bar-container {
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  background-color: white;
+  overflow-y: scroll;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  width: 283px;
+  transition: width .2s ease-in;
+  @media (max-width: 800px) {
+    width: 80px;
+  }
+  .switch-organization {
+    padding-top: 130px;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding-left: 1.875rem;
+    margin-bottom: 2.625rem;
+
+    .text {
+      font-size: 1rem;
+      color: $primary-text-color;
+      padding: 0;
+      margin: 0;
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+    .dropdown {
+      cursor: pointer;
+    }
+  }
+  .title {
+    margin-top: 1.875rem;
+    margin-bottom: 0.625rem;
+    padding-left: 1.875rem;
+    color: $secondary-text-color;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  .grouping {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .divider {
+    margin-top: 3.75rem;
+    border: 0.5px solid $primary-text-color;
+    opacity: 0.1;
+  }
+
+  .logout {
+    color: $primary-text-color;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    gap: 0.625rem;
+    align-items: center;
+    padding-left: 1.875rem;
+    transition: all 0.2s ease-in-out;
+    margin: 1.25rem 0 2.5rem;
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+    &:hover {
+      padding-left: 2.3rem;
+    }
+  }
+
+  .version {
+    color: $primary-text-color;
+    padding-left: 1.875rem;
+    font-size: 0.75rem;
+  }
+
+  @media (max-width: 800px) {
+    .title {
+      padding: 0;
+      text-align: center;
+      font-size: 0.625rem;
+    }
+  }
+
+  @media (max-width: 650px) {
+    .logout {
+      padding-left: 0;
+      justify-content: center;
+      &:hover {
+        padding-left: 1rem;
+      }
+      p {
+        display: none;
+      }
+    }
+    .version {
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+}

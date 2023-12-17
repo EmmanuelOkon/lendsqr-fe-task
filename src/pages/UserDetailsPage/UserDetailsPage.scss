@@ -1,0 +1,9 @@
+@import "../../Variables/Variables.scss";
+
+.user-detail-container {
+  display: flex;
+  gap: 3.75rem;
+  @media (max-width: 460px) {
+    gap: 1rem;
+  }
+}
