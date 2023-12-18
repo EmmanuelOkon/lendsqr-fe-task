@@ -1,4 +1,4 @@
-@import "../../Variables/Variables.scss";
+@import "../../variables/variables.scss";
 
 .user-detail {
   display: flex;
@@ -9,7 +9,7 @@
   @media (max-width: 800px) {
     margin-left: 80px;
   }
-   .go-back {
+  .go-back {
     display: flex;
     gap: 0.8125rem;
     align-items: center;

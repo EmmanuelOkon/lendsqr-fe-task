@@ -1,4 +1,4 @@
-@import "../../Variables/Variables.scss";
+@import "../../variables/variables.scss";
 
 .header {
   display: flex;
@@ -15,18 +15,18 @@
     display: flex;
     gap: 9rem;
     padding: 20px 30px;
-    align-items: center;F
-    .logo-image {
+    align-items: center;
+    F .logo-image {
       cursor: pointer;
     }
   }
-  .list{
+  .list {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-     width: 100%;
-    @media (max-width: 800px){
+    width: 100%;
+    @media (max-width: 800px) {
       width: fit-content;
     }
     .navigation-menu {
@@ -55,9 +55,9 @@
           display: none;
         }
       }
-      .profile{
+      .profile {
         display: flex;
-         .profile-image {
+        .profile-image {
           border-radius: 100%;
           margin-right: 0.625rem;
           cursor: pointer;
@@ -69,7 +69,7 @@
           gap: 0.645625rem;
 
           .username {
-            color: $primary-text-color; 
+            color: $primary-text-color;
             cursor: pointer;
             font-size: 1rem;
             @media (max-width: 1000px) {
@@ -81,7 +81,6 @@
             cursor: pointer;
           }
         }
-     
       }
     }
     .search-container {
@@ -123,12 +122,12 @@
       }
     }
   }
-  .dropdown-menu{ 
+  .dropdown-menu {
     display: none;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    transition: linear .3s ease-in;
+    transition: linear 0.3s ease-in;
     position: absolute;
     width: 100%;
     max-width: 150px;
@@ -142,25 +141,25 @@
       flex-direction: column;
       cursor: pointer;
     }
-    .item{
+    .item {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 5px;
       cursor: pointer;
-      transition: linear .2s ease-in;
+      transition: linear 0.2s ease-in;
       // width: 100%;
-      .text{
+      .text {
         padding: 0 10px;
         font-size: 1rem;
       }
-      &:hover{
-        transition: width .2s ease-in;
+      &:hover {
+        transition: width 0.2s ease-in;
         border-radius: 5px;
         padding: 10px;
         color: white;
         background-color: $tertiary-text-color;
-    }
+      }
     }
   }
 }

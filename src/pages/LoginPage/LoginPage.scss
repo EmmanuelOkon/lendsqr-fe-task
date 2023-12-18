@@ -1,4 +1,4 @@
-@import "../../Variables/Variables.scss";
+@import "../../variables/variables.scss";
 
 .login-page-container {
   display: flex;
@@ -7,12 +7,12 @@
   min-height: 100vh;
   .left-side {
     background-color: $primary-bg-color;
-    width: 50%;     
+    width: 50%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    .logo-container{
+    .logo-container {
       padding: 50px;
     }
     .image-container {
@@ -32,7 +32,7 @@
   }
 
   .right-side {
-    background-color: $primary-bg-color;  
+    background-color: $primary-bg-color;
     width: 50%;
     flex-grow: 1;
     display: flex;
@@ -42,14 +42,14 @@
     box-shadow: -15px 0px 90px 0px rgba(0, 0, 0, 0.03);
     -webkit-box-shadow: -15px 0px 90px 0px rgba(0, 0, 0, 0.03);
     -moz-box-shadow: -15px 0px 90px 0px rgba(0, 0, 0, 0.03);
-    .form-container{
+    .form-container {
       width: 100%;
       display: grid;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr;
       gap: 1.5rem;
       max-width: 550px;
-      .form-header{
+      .form-header {
         width: 100%;
         .welcome {
           font-size: 2.5rem;
@@ -57,13 +57,13 @@
           color: $primary-text-color;
           letter-spacing: -0.09rem;
         }
-      .login-text {
-        font-family: $tertiary-font;
-        font-size: 1.25rem;
-        color: $secondary-text-color;
-        margin-bottom: 3.75rem;
+        .login-text {
+          font-family: $tertiary-font;
+          font-size: 1.25rem;
+          color: $secondary-text-color;
+          margin-bottom: 3.75rem;
+        }
       }
-    }
     }
   }
 
