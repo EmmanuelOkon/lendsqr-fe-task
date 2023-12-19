@@ -21,7 +21,7 @@ export const columns = [
     disableFilters: true,
     Cell: ({ value }: any) => {
       const formattedDate = new Date(value).toLocaleString("en-US", {
-        month: "long",
+        month: "short",
         day: "numeric",
         year: "numeric",
         hour: "numeric",

@@ -16,7 +16,7 @@
     gap: 9rem;
     padding: 20px 30px;
     align-items: center;
-    F .logo-image {
+    & .logo-image {
       cursor: pointer;
     }
   }
@@ -57,9 +57,12 @@
       }
       .profile {
         display: flex;
+        align-items: center;
         .profile-image {
           border-radius: 100%;
           margin-right: 0.625rem;
+          width: 35px;
+          height: 35px;
           cursor: pointer;
         }
 

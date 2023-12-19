@@ -83,7 +83,7 @@ const UserDetail = () => {
                 </p>
               </div>
             </div>
-            <p>General Detais</p>
+            {/* <p>General Detais</p> */}
             <div className="user-info-nav">
               <div onClick={() => dispatch(setUserDetailNav("General Details"))}>
                 <UserDetailsNav title={"General Details"} active={userDetailNav} />

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import "./UsersTable.scss";
 import {
@@ -26,26 +25,23 @@ import FilterModal from "../FilterModal/FilterModal";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../logic/action/types";
 import { setFilterModalToggle, setModalFilter } from "../../logic/action";
-import error from "../../assets/icons/2.png"
+import error from "../../assets/icons/2.png";
 
 const UsersTable = () => {
   const [actionModal, setActionModal] = useState(false);
   const [selectedRow, setSelectedRow] = useState(0);
   const dispatch = useDispatch();
-  const {
-    org,
-    username,
-    email,
-    status,
-    phoneNumber,
-  } = useSelector((state: RootState) => state.dashboardReducer.modalFilter);
-  const filterModal = useSelector((state: RootState) => state.dashboardReducer.filterModalToggle);
+  const { org, username, email, status, phoneNumber } = useSelector(
+    (state: RootState) => state.dashboardReducer.modalFilter
+  );
+  const filterModal = useSelector(
+    (state: RootState) => state.dashboardReducer.filterModalToggle
+  );
   const handleFilter = () => {
     dispatch(setFilterModalToggle(false));
   };
 
   const formData = { org, username, email, status, phoneNumber };
-  
 
   const ref = useRef() as MutableRefObject<HTMLDivElement>;
 
@@ -72,15 +68,18 @@ const UsersTable = () => {
 
   // const dataWithStatus = data.map((item: any) => {
 
-  const dataWithStatus = Array.isArray(data) ? data.map((item: any) => {
-    const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-    
-    return {
-      ...item,
-      status: randomStatus,
-      icon: <MdOutlineMoreVert />,                        
-    };
-   }) : [];
+  const dataWithStatus = Array.isArray(data)
+    ? data.map((item: any) => {
+        const randomStatus =
+          statuses[Math.floor(Math.random() * statuses.length)];
+
+        return {
+          ...item,
+          status: randomStatus,
+          icon: <MdOutlineMoreVert />,
+        };
+      })
+    : [];
 
   const rowColumns = useMemo(() => columns, []);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -147,6 +146,7 @@ const UsersTable = () => {
                       </div>
                       <div
                         className="filter"
+                        
                         onClick={() => {
                           if (
                             formData.org === "" &&
@@ -155,16 +155,18 @@ const UsersTable = () => {
                             formData.phoneNumber === "" &&
                             formData.status === ""
                           ) {
-                            dispatch(setFilterModalToggle(true));;
+                            dispatch(setFilterModalToggle(true));
                           }
 
-                          dispatch(setModalFilter({
-                            org: "",
-                            username: "",
-                            email: "",
-                            phoneNumber: "",
-                            status: "",
-                          }));
+                          dispatch(
+                            setModalFilter({
+                              org: "",
+                              username: "",
+                              email: "",
+                              phoneNumber: "",
+                              status: "",
+                            })
+                          );
                         }}
                       >
                         {column.render("Header") !== "" && (
@@ -180,103 +182,105 @@ const UsersTable = () => {
               </tr>
             ))}
           </thead>
-          {page.length > 0 ?
-          <tbody {...getTableBodyProps()}>
-            
-            <>
-            {page.map((row, index) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell: any) => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        className={`row ${index === 9 ? "no-border" : ""}`}
-                      >
-                        {cell.column.Header === "Organization" ||
-                          cell.column.Header === "Username" ||
-                          cell.column.Header === "Email" ||
-                          cell.column.Header === "Phone Number" ? (
-                          <Link
-                            to={`/user-details/${cell.row.original.id}`}
-                            className="link-to-user-details"
-                            onClick={() => {
-                              window.scrollTo({
-                                top: 0,
-                                left: 0,
-                                behavior: "smooth",
-                              });
-                            }}
+          {page.length > 0 ? (
+            <tbody {...getTableBodyProps()}>
+              <>
+                {page.map((row, index) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map((cell: any) => {
+                        return (
+                          <td
+                            {...cell.getCellProps()}
+                            className={`row ${index === 9 ? "no-border" : ""}`}
                           >
-                            {cell.render("Cell")}
-                          </Link>
-                        ) : cell.column.Header === "Status" ? (
-                          <div className={`${cell.value}`}>
-                            {cell.render("Cell")}
-                          </div>
-                        ) : cell.column.Header === "" ? (
-                          <div
-                            className="status-action"
-                            onClick={() => {
-                              setSelectedRow(cell.row.id);
-                              setActionModal(!actionModal);
-                            }}
-                          >
-                            {cell.render("Cell")}
-                            {actionModal && +selectedRow === +index && (
-                              <div className="action-modal" ref={ref}>
-                                <div
-                                  className="icon-and-text"
-                                  onClick={() => {
-                                    window.scrollTo({
-                                      top: 0,
-                                      left: 0,
-                                      behavior: "smooth",
-                                    });
-                                    navigate(
-                                      `/user-details/${cell.row.original.id}`
-                                    );
-                                  }}
-                                >
-                                  <IoEyeOutline
-                                    color="#545F7D"
-                                    size={"1.2rem"}
-                                  />
-                                  <p className="item">View Details</p>
-                                </div>
-                                <div className="icon-and-text">
-                                  <BiUserX color="#545F7D" size={"1.2rem"} />
-                                  <p className="item">Blacklist User</p>
-                                </div>
-                                <div className="icon-and-text">
-                                  <GrUserExpert color="#545F7D" />
-                                  <p className="item">Activate User</p>
-                                </div>
+                            {cell.column.Header === "Organization" ||
+                            cell.column.Header === "Username" ||
+                            cell.column.Header === "Email" ||
+                            cell.column.Header === "Phone Number" ? (
+                              <Link
+                                to={`/user-details/${cell.row.original.id}`}
+                                className="link-to-user-details"
+                                onClick={() => {
+                                  window.scrollTo({
+                                    top: 0,
+                                    left: 0,
+                                    behavior: "smooth",
+                                  });
+                                }}
+                              >
+                                {cell.render("Cell")}
+                              </Link>
+                            ) : cell.column.Header === "Status" ? (
+                              <div className={`${cell.value}`}>
+                                {cell.render("Cell")}
                               </div>
+                            ) : cell.column.Header === "" ? (
+                              <div
+                                className="status-action"
+                                onClick={() => {
+                                  setSelectedRow(cell.row.id);
+                                  setActionModal(!actionModal);
+                                }}
+                              >
+                                {cell.render("Cell")}
+                                {actionModal && +selectedRow === +index && (
+                                  <div className="action-modal" ref={ref}>
+                                    <div
+                                      className="icon-and-text"
+                                      onClick={() => {
+                                        window.scrollTo({
+                                          top: 0,
+                                          left: 0,
+                                          behavior: "smooth",
+                                        });
+                                        navigate(
+                                          `/user-details/${cell.row.original.id}`
+                                        );
+                                      }}
+                                    >
+                                      <IoEyeOutline
+                                        color="#545F7D"
+                                        size={"1.2rem"}
+                                      />
+                                      <p className="item">View Details</p>
+                                    </div>
+                                    <div className="icon-and-text">
+                                      <BiUserX
+                                        color="#545F7D"
+                                        size={"1.2rem"}
+                                      />
+                                      <p className="item">Blacklist User</p>
+                                    </div>
+                                    <div className="icon-and-text">
+                                      <GrUserExpert color="#545F7D" />
+                                      <p className="item">Activate User</p>
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            ) : (
+                              <>{cell.render("Cell")}</>
                             )}
-                          </div>
-                        ) : (
-                          <>{cell.render("Cell")}</>
-                        )}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-            </>
-          </tbody>
-          : 
-          <tbody className="empty">
-             <tr>
-              <td>
-                <img src={error} alt="no-data" className="no-data" />
-                <p className="">No Data Found</p>
-              </td>
-            </tr>
-          </tbody>
-          }
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </>
+            </tbody>
+          ) : (
+            <tbody className="empty">
+              <tr>
+                <td>
+                  <img src={error} alt="no-data" className="no-data" />
+                  <p className="">No Data Found</p>
+                </td>
+              </tr>
+            </tbody>
+          )}
         </table>
 
         {filterModal && (
@@ -287,22 +291,21 @@ const UsersTable = () => {
           />
         )}
       </div>
-
       <div className="table-pagination">
         <div className="table-page-counter">
           <div className="showing">
-            Showing{" "}
+            Showing
             <div className="showing-select">
-              <select value={pageIndex + 1} onChange={(e) => gotoPage(+e.target.value - 1)}>
+              <select
+                value={pageIndex + 1}
+                onChange={(e) => gotoPage(+e.target.value - 1)}
+              >
                 {pageOptions.map((item, index) => (
-                  <option
-                    value={index + 1}
-                    key={item}
-                  >
+                  <option value={index + 1} key={item}>
                     {(index + 1) * pageSize}
                   </option>
                 ))}
-              </select>{" "}
+              </select>
             </div>
             out of {pageOptions.length * pageSize}
           </div>
@@ -339,5 +342,3 @@ const UsersTable = () => {
 };
 
 export default UsersTable;
-
-// IoEyeOutline
